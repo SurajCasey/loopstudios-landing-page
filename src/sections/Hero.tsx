@@ -17,7 +17,7 @@ const Hero = () => {
 
       {/* Desktop background */}
       <div
-        className="hidden md:block py-10 px-6 h-screen bg-cover bg-center bg-no-repeat"
+        className="hidden md:block py-10 px-6 lg:py-[64px] lg:px-[165px] h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${HeroImgDesktop})` }}
       >
         <HeroContent />
