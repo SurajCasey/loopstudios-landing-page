@@ -4,7 +4,7 @@ const NavBar = () => {
   return (
     <div className='hidden lg:flex justify-between'>
       <div>
-        <img src={Logo} alt="loopstudios logo" />
+        <img src={Logo} alt="loopstudios logo" className='cursor-pointer'/>
       </div>
       <div>
         <ul className='flex gap-8 text-white leading-relaxed'>

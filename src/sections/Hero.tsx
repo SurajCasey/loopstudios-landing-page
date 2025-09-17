@@ -3,8 +3,11 @@ import HamburgerImg from '../assets/icon-hamburger.svg'
 import HeroImgMobile from '../assets/mobile/image-hero.jpg';
 import HeroImgDesktop from '../assets/desktop/image-hero.jpg';
 import NavBar from '../components/NavBar';
+import { useState } from 'react';
+import Menu from '../components/Menu';
 
 const Hero = () => {
+    const [open, setOpen] = useState(false)
   return (
     <>
       {/* Mobile background */}
@@ -12,7 +15,7 @@ const Hero = () => {
         className="md:hidden py-10 px-6 h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${HeroImgMobile})` }}
       >
-        <HeroContent />
+        <HeroContent open={open} setOpen={setOpen} />
       </div>
 
       {/* Desktop background */}
@@ -20,17 +23,29 @@ const Hero = () => {
         className="hidden md:block py-10 px-6 lg:py-[64px] lg:px-[165px] h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${HeroImgDesktop})` }}
       >
-        <HeroContent />
+        <HeroContent open={open} setOpen={setOpen} />
       </div>
     </>
   );
 };
 
-const HeroContent = () => (
+interface HeroContentProps{
+    open: boolean
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+
+const HeroContent = ({open, setOpen}: HeroContentProps) => (
   <>
     <div className='flex justify-between items-center lg:hidden'>
         <img className='w-[144px] h-6' src={LogoImg} alt="loop Studios" />
-        <img className='w-6 h-4' src={HamburgerImg} alt="click for menu" />
+
+        <button 
+            onClick={() => setOpen(true)}
+            className='cursor-pointer'
+        >
+            <img className='w-6 h-4' src={HamburgerImg} alt="click for menu" />
+        </button>
     </div>
     <NavBar/>
 
@@ -40,6 +55,9 @@ const HeroContent = () => (
         >
       IMMERSIVE <br /> EXPERIENCES <br /> THAT <br className='sm:hidden'/> DELIVER
     </div>
+
+    {/* Overlay Menu */}
+    {open && <Menu onClose={() =>setOpen(false)}/>}
   </>
 );
 

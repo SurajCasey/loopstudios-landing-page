@@ -9,7 +9,16 @@ const Card = ({mobile, desktop, title}: CardProps) => {
     <div className='w-fit relative group cursor-pointer'>
         <div>
             {/* Mobile image */}
-            <img src={mobile} alt={title} className="block lg:hidden h-30 object-cover"/>
+            <img src={mobile} alt={title} className="block md:hidden h-30 object-cover"/>
+
+
+            {/* Tablet image */}
+            <img
+            src={mobile}
+            alt={title}
+            className="hidden md:block lg:hidden w-[608px] h-[120px] object-top"
+            />
+
 
             {/* Desktop image */}
             <img src={desktop} alt={title} className="hidden lg:block w-full h-auto object-cover" />

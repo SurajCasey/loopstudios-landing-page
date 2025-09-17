@@ -36,17 +36,20 @@ const creations = [
 const OurCreations = () => {
   return (
     <div
-        className="flex flex-col justify-center items-center"
+        className="w-full flex flex-col justify-center items-center "
     >
-        <div>
+        <div className=" mb-12 lg:w-[1120px] lg:flex lg:justify-between">
             <h2 
-                className="uppercase font-light text-[32px] leading-[100%] mb-12"
+                className="uppercase font-light text-[32px] leading-[100%] "
             >
                 Our Creations
             </h2>
+            <div className="hidden lg:block">
+                <Button />
+            </div>
         </div>
         <div
-            className="grid grid-cols-1 gap-6 mb-8"
+            className="grid grid-cols-1 gap-6 mb-8 lg:grid-cols-4 gap-8"
         >
             {creations.map((item,index) =>(
                 <Card
@@ -58,7 +61,9 @@ const OurCreations = () => {
             ))}
         </div>
 
-      <Button/>
+      <div className="lg:hidden">
+        <Button/>
+      </div>
     </div>
   )
 }
