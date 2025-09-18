@@ -7,7 +7,7 @@ interface MenuProps {
 
 const Menu = ({onClose}: MenuProps) => {
   return (
-    <div className='min-lg:hidden w-screen h-screen bg-black p-6 min-sm:p-24'>
+    <div className='min-lg:hidden fixed inset-0 z-50 h-screen bg-black p-6 min-sm:p-24'>
         <div className='flex justify-between items-center gap-2.5'>
             <div><img src={Logo} alt="loopstudios logo" /></div>
             <button
